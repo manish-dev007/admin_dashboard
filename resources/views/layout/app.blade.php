@@ -64,8 +64,8 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Add Product</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">All Products</a>
+                                <a class="nav-link" href="{{ url('add-product') }}">Add Product</a>
+                                <a class="nav-link" href="{{ url('Products') }}">All Products</a>
                             </nav>
                         </div>
 
@@ -143,7 +143,20 @@
 
         @yield('content')
     </div>
-
+    @section('footer')
+    <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                @endsection
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('js/scripts.js') }}"></script>

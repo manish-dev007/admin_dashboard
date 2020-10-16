@@ -22,3 +22,7 @@ Route::get('register', 'AuthController@register');
 Route::post('post-register', 'AuthController@postRegister'); 
 Route::get('/', 'AuthController@dashboard'); 
 Route::get('logout', 'AuthController@logout');
+
+//Products
+Route::get('Products', 'ProductsController@index');
+Route::get('add-product', 'ProductsController@add_product');
