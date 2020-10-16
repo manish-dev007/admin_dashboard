@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Login</title>
+    <title>Registration</title>
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
@@ -17,22 +17,29 @@
 <body>
 
 <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
+<div id="layoutAuthentication_content">
                 <main>
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-lg-5">
+                            <div class="col-lg-7">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
-                                    <form action="{{url('post-login')}}" method="POST" id="logForm">
+                                    <form action="{{url('post-register')}}" method="POST" id="regForm">
                                         {{ csrf_field() }}
                                             <div class="form-group">
+                                                <label class="small mb-1" for="inputFirstName">Full Name</label>
+                                                <input class="form-control py-4" id="inputFirstName" type="text" name="name" placeholder="Enter Full Name" />
+                                                 @if ($errors->has('name'))
+                                                  <span class="error">{{ $errors->first('name') }}</span>
+                                                  @endif  
+                                            </div>
+                                            <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" name="email" type="email" placeholder="Enter email address" />
+                                                <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" name="email" placeholder="Enter email address" />
                                                 @if ($errors->has('email'))
                                                   <span class="error">{{ $errors->first('email') }}</span>
-                                                @endif 
+                                                @endif
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputPassword">Password</label>
@@ -41,20 +48,13 @@
                                                   <span class="error">{{ $errors->first('password') }}</span>
                                                 @endif
                                             </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
-                                                    <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="#">Forgot Password?</a>
-                                                <button class="btn btn-primary" type="submit">Login</button>
+                                            <div class="form-group mt-4 mb-0">
+                                                <button class="btn btn-primary btn-block" type="submit">Create Account</button>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small"><a href="{{ url('register') }}">Need an account? Sign up!</a></div>
+                                        <div class="small"><a href="{{ url('login') }}">Have an account? Go to login</a></div>
                                     </div>
                                 </div>
                             </div>
