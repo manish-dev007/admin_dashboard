@@ -25,31 +25,119 @@
                             </div>
                             <div class="card-body">
                                 
-                                    <form action="{{url('post-register')}}" method="POST" id="regForm">
+                                    <form action="{{ route('product.insert') }}" method="POST" id="regForm">
                                         {{ csrf_field() }}
-                                            <div class="form-group">
-                                                <label class="small mb-1" for="inputFirstName">Full Name</label>
-                                                <input class="form-control py-4" id="inputFirstName" type="text" name="name" placeholder="Enter Full Name" />
-                                                 @if ($errors->has('name'))
-                                                  <span class="error">{{ $errors->first('name') }}</span>
-                                                  @endif  
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" name="email" placeholder="Enter email address" />
-                                                @if ($errors->has('email'))
-                                                  <span class="error">{{ $errors->first('email') }}</span>
-                                                @endif
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="small mb-1" for="inputPassword">Password</label>
-                                                <input class="form-control py-4" id="inputPassword" type="password" name="password" placeholder="Enter password" />
-                                                @if ($errors->has('password'))
-                                                  <span class="error">{{ $errors->first('password') }}</span>
-                                                @endif
-                                            </div>
-                                            <div class="form-group mt-4 mb-0">
-                                                <button class="btn btn-primary btn-block" type="submit">Create Account</button>
+                                        <div class="form-group">
+									<label class="small mb-1" for="cname">Product Name</label>
+									<input type="text" id="vname" class="form-control"  placeholder="Enter Product Name" name="pname" required>
+								</div>
+								
+								<div class="form-group">
+									<label class="small mb-1" for="cname">Product Image</label>
+									<input type="file" id="pimg" class="form-control"  placeholder="Enter Product Image" name="pimg" required>
+								</div>
+								
+								<div class="form-group">
+									<label class="small mb-1" for="cname">Product Related Image</label>
+									<input type="file" id="pimg" class="form-control"  placeholder="Enter Product Related Image" name="prel[]" multiple >
+								<p>Only Upload 3 Images</p>
+								</div>
+								
+                                <div class="form-group">
+									<label class="small mb-1" for="gurl">Seller Name / Shop Name</label>
+									<input type="text" id="gurl" class="form-control"  placeholder="Enter Seller Name" name="sname" required>
+									
+								</div>
+								
+								<div class="form-group">
+											<label class="small mb-1" for="projectinput6">Select Category</label>
+											<select id="cat_change" name="catname" class="form-control" required>
+												<option value="" selected="" disabled="">Select Category</option>
+												<option value="1" >First</option>
+												<option value="2" >Second</option>
+												
+											</select>
+										</div>
+										
+										<div class="form-group">
+											<label class="small mb-1" for="projectinput6">Select SubCategory</label>
+											<select id="sub_list" name="subcatname" class="form-control" required>
+												<option value="" selected="" disabled="">Select SubCategory</option>
+												<option value="1" >First</option>
+												<option value="2" >Second</option>
+												
+											</select>
+										</div>
+										
+
+								<div class="form-group">
+											<label class="small mb-1" for="projectinput6">Out OF Stock?</label>
+											<select id="projectinput6" name="ostock" class="form-control">
+												
+												<option value="0">Yes</option>
+												<option selected="" value="1">No</option>
+											</select>
+										</div>
+
+										<div class="form-group">
+											<label class="small mb-1" for="ptax">Product Tax (in %)</label>
+											<input type="text" id="ptax" class="form-control"  placeholder="Enter Product Tax" name="ptax" required>
+											
+										</div>
+										
+										<div class="form-group">
+											<label class="small mb-1" for="projectinput63">Send Notification?</label>
+											<select id="projectinput63" name="snoti" class="form-control">
+												
+												<option value="1">Yes</option>
+												<option selected="" value="0">No</option>
+											</select>
+										</div>
+										
+										<div class="form-group">
+											<label class="small mb-1" for="projectinput6">Product Publish Or Unpublish?</label>
+											<select id="projectinput6" name="ppuborun" class="form-control">
+												
+												<option value="0">Unpublish</option>
+												<option selected="" value="1">Publish</option>
+											</select>
+										</div>
+										
+										<div class="form-group">
+											<label class="small mb-1" for="projectinput6">Make Product Popular?</label>
+											<select id="projectinput6" name="popular" class="form-control">
+												
+												<option value="1">Yes</option>
+												<option selected="" value="0">No</option>
+											</select>
+										</div>
+										
+								<div class="form-group">
+									<label class="small mb-1" for="gurl">Product Small Description</label>
+									<textarea class="form-control" name="psdesc" placeholder="Enter Product Small Description" required></textarea>
+									
+								</div>
+									
+								
+								<div class="form-group">
+									<label class="small mb-1" for="gurl">Product (Gms,kg,ltr,ml,pcs)</label>
+									<input type="text" id="ptype" class="form-control"  name="pgms"  placeholder="1 gms,250 gms" data-role="tagsinput"  required>
+									
+								</div>
+								
+								<div class="form-group">
+									<label class="small mb-1" for="gurl">Product Price</label>
+									<input type="text" id="pprice" class="form-control"  placeholder="1,10" name="pprice" data-role="tagsinput" required>
+									
+								</div>
+								
+								<div class="form-group">
+									<label class="small mb-1" for="gurl">Product discount (Only Digit)</label>
+									<input type="text" id="gurl" class="form-control"  name="discount_percentage" placeholder="Enter discount in percentage ex. 5" required>
+									
+								</div>
+                                            <div class="form-group mt-4 mb-0 col-md-3">
+                                                <button class="btn btn-primary btn-block" type="submit">Save Product</button>
                                             </div>
                                         </form>
                             </div>

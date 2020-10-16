@@ -26,3 +26,5 @@ Route::get('logout', 'AuthController@logout');
 //Products
 Route::get('Products', 'ProductsController@index');
 Route::get('add-product', 'ProductsController@add_product');
+Route::post('/insert-product', "ProductController@insert")->name('product.insert');
+Route::get('/products', "ProductController@show")->name('product.home');
