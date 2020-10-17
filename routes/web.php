@@ -24,7 +24,10 @@ Route::get('/', 'AuthController@dashboard');
 Route::get('logout', 'AuthController@logout');
 
 //Products
-Route::get('Products', 'ProductsController@index');
-Route::get('add-product', 'ProductsController@add_product');
+Route::get('Products', 'ProductController@index');
+Route::get('add-product', 'ProductController@add_product');
+Route::get('Editproduct/{id}', 'ProductController@EditView');
 Route::post('/insert-product', "ProductController@insert")->name('product.insert');
-Route::get('/products', "ProductController@show")->name('product.home');
+Route::any('/fetchSubCateg', "ProductController@fetch_subcateg")->name('fetchSubCateg');
+Route::post('/update-product/{id}', "ProductController@update")->name('product.update');
+Route::get('DeleteProduct/{id}', 'ProductController@DeleteProduct');

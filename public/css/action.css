@@ -33,3 +33,13 @@
   ::-webkit-scrollbar-corner {
 	background: transparent;
   }
+  .danger {
+      color: #FF586B;font-size: 12px;;
+  }
+  .primary {
+      color: #007bff;font-size: 12px;;
+  }
+  .err_img{
+    font-size: 12px;
+    color: gray;
+  }
